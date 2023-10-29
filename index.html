@@ -165,124 +165,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zdon Wu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zdon的技术小屋">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/17/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-17 20:52:42" itemprop="dateCreated datePublished" datetime="2023-10-17T20:52:42+08:00">2023-10-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-11 21:14:00" itemprop="dateModified" datetime="2023-10-11T21:14:00+08:00">2023-10-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、简单工厂模式"><a href="#一、简单工厂模式" class="headerlink" title="一、简单工厂模式"></a>一、简单工厂模式</h2><blockquote>
-<p>注意：命名规范、多个分支使用switch、考虑异常情况</p>
-</blockquote>
-<p>面向对象的编程，对代码做到：可维护、可复用、灵活性好</p>
-<ul>
-<li><p>业务的封装</p>
-<p>前后端分离，将业务逻辑和界面逻辑分开，让他们之间的耦合度下降，可以依赖面向对象的三大特性来实现</p>
-</li>
-<li><p>工厂模式</p>
-<p>通过工厂类，传入不同的字符串来返回不同继承类的构造函数，需要实例哪一个子类，可以通过传入参数来进行选择</p>
-<p>可以使用switch，或者使用map映射等方式</p>
-</li>
-<li><p>UML类图</p>
-<ul>
-<li>依赖关系</li>
-<li>聚合关系</li>
-<li>合成关系</li>
-<li>继承关系</li>
-<li>关联关系</li>
-<li>接口关系</li>
-<li>泛化关系</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/image-20231008153018253.png" alt="image-20231008153018253"></p>
-<h2 id="二、策略模式"><a href="#二、策略模式" class="headerlink" title="二、策略模式"></a>二、策略模式</h2><blockquote>
-<p>策略模式定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的用户。</p>
-</blockquote>
-<p>只有算法需要替换，而其它不需要替换</p>
-<p>使用策略类，定义所有支持算法的公共接口</p>
-<ul>
-<li>策略模式是一种定义一系列算法的方法，所有这些算法完成的是相同的工作，但是实现不同，可以以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合</li>
-<li>策略模式的优点可以简化单元测试，因为每个算法都有自己的类，可以通过自己的接口单独测试</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">策略模式的三个要点</span><br><span class="line">1、基类，策略接口，用于子类继承该基类，并重写基类中的策略方法</span><br><span class="line">2、具体的策略类，不同的策略类使用不同的方法来实现基类的虚方法</span><br><span class="line">3、上下文，context，在上下文中，通过一个公共的方法，来调用不同子类实现的虚方法（使用传入不同子类对象来实现）</span><br><span class="line"></span><br><span class="line">用户只需要使用context来使用不同对象传入即可以完成不同的策略选择</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、单一职责原则"><a href="#三、单一职责原则" class="headerlink" title="三、单一职责原则"></a>三、单一职责原则</h2><blockquote>
-<p>对于一个类而言，应该仅有一个引起它变化的原因。</p>
-<p>如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者这个类完成其它职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭到意想不到的破坏。</p>
-</blockquote>
-<h2 id="四、开放-封闭原则"><a href="#四、开放-封闭原则" class="headerlink" title="四、开放-封闭原则"></a>四、开放-封闭原则</h2><p><strong>软件实体（类、模块、函数等）应该可以扩展但不可修改，即对拓展开放，对修改封闭</strong></p>
-<h2 id="五、依赖倒置原则"><a href="#五、依赖倒置原则" class="headerlink" title="五、依赖倒置原则"></a>五、依赖倒置原则</h2><p>1、高层模块不应该依赖底层模块，两个都应该依赖抽象</p>
-<p>2、抽象不应该依赖细节，细节应该依赖抽象</p>
-<ul>
-<li><p>里氏代换原则</p>
-<p>一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。</p>
-<p>即：子类型必须能够替换掉它们的父类型</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">和策略模式有一定的相似之处，例子</span><br><span class="line"></span><br><span class="line">Device类</span><br><span class="line">class Device:</span><br><span class="line">    def turn_on(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def turn_off(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">子类</span><br><span class="line">class Light(Device):</span><br><span class="line">    def turn_on(self):</span><br><span class="line">        print(&quot;Light is turned on&quot;)</span><br><span class="line"></span><br><span class="line">    def turn_off(self):</span><br><span class="line">        print(&quot;Light is turned off&quot;)</span><br><span class="line"></span><br><span class="line">class Fan(Device):</span><br><span class="line">    def turn_on(self):</span><br><span class="line">        print(&quot;Fan is turned on&quot;)</span><br><span class="line"></span><br><span class="line">    def turn_off(self):</span><br><span class="line">        print(&quot;Fan is turned off&quot;)</span><br><span class="line"></span><br><span class="line">class Speaker(Device):</span><br><span class="line">    def turn_on(self):</span><br><span class="line">        print(&quot;Speaker is turned on&quot;)</span><br><span class="line"></span><br><span class="line">    def turn_off(self):</span><br><span class="line">        print(&quot;Speaker is turned off&quot;)</span><br><span class="line"></span><br><span class="line">高层模块</span><br><span class="line">class DeviceController:</span><br><span class="line">    def __init__(self, device):</span><br><span class="line">        self.device = device</span><br><span class="line"></span><br><span class="line">    def operate(self):</span><br><span class="line">        self.device.turn_on()</span><br><span class="line"></span><br><span class="line">    def stop(self):</span><br><span class="line">        self.device.turn_off()</span><br><span class="line"></span><br><span class="line">main</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    light = Light()</span><br><span class="line">    fan = Fan()</span><br><span class="line">    speaker = Speaker()</span><br><span class="line"></span><br><span class="line">    controller1 = DeviceController(light)</span><br><span class="line">    controller2 = DeviceController(fan)</span><br><span class="line">    controller3 = DeviceController(speaker)</span><br><span class="line"></span><br><span class="line">    controller1.operate()</span><br><span class="line">    controller2.operate()</span><br><span class="line">    controller3.operate()</span><br><span class="line"></span><br><span class="line">    controller1.stop()</span><br><span class="line">    controller2.stop()</span><br><span class="line">    controller3.stop()</span><br><span class="line">高层模块 DeviceController 不直接依赖于具体的设备类（如 Light、Fan 和 Speaker），而是依赖于抽象的 Device 接口。这就是依赖倒置原则的应用，它使得高层模块更加灵活，可以轻松地切换和扩展不同类型的设备，而不需要修改高层模块的代码。这有助于创建松耦合的、易于维护和扩展的代码</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="六、装饰模式"><a href="#六、装饰模式" class="headerlink" title="六、装饰模式"></a>六、装饰模式</h2><p>动态地给一个对象添加一些额外地职责，就增加功能来说，装饰模式比生成子类更为灵活</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/10/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -415,7 +297,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
